@@ -4,6 +4,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" type="text/css" href="css/phone.css" />
         <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="js/jquery.ui.touch-punch.min.js"></script>
         <script src="js/controller.js"></script>
         <title>Windows Phone</title>
     </head>
@@ -14,14 +16,13 @@
         <div id="about">
             <h2>翼領隨身單字卡<br />Knightzone Portable Vocabulary Card</h2>
             <ul>
-                <li>版本號：1.0</li>
+                <li>版本號：1.5</li>
                 <li>製作：新罪楓翼☆灆洢騎士</li>
                 <li>網站：http://www.knightzone.org</li>
                 <li>原始碼：https://github.com/sinmaplewing/Knightzone-Portable-Vocabulary-Card</li>
                 <li>授權：CC BY-SA 3.0 TW</li>
                 <li>圖示使用：Metro Studio</li>
             </ul>
-            <div id="click_index2">返回首頁</div>
         </div>
         <div id="index">
             <ul id="menu" class="menu">
@@ -32,6 +33,7 @@
             </div>
             <ul id="category-list" class="category-list">
             </ul>
+            <div>(可拖曳換順序)</div>
         </div>
         <div id="addCategory">
             <ul id="menu1" class="menu">
@@ -42,23 +44,26 @@
             </div>
             <form id="addCategoryForm">
                 <p>
-                    <label for="category">分類名稱：</label><input type="text" id="category" name="category"/>
+                    <label for="category">分類名稱：</label><input type="text" id="category" name="category" data-id=""/>
                 </p>
                 <p>
-                    <input type="submit" value="新增"/>
+                    <input type="submit" value="送出"/>
                 </p>
             </form>
         </div>
         <div id="categoryContent">
             <ul id="menu2" class="menu">
+                <li id="click_editCategory">編輯此分類</li>
                 <li id="deleteCategory">刪除此分類</li>
                 <li id="addVocabulary">新增單字</li>
+                <li id="revertContent">反轉單字顯示</li>
                 <li id="click_index1">返回分類列表</li>
             </ul>
             <div id="page-title2" class="page-title">
             </div>
             <ul id="vocabulary-list" class="vocabulary-list">
             </ul>
+            <div>(可拖曳換順序)</div>
         </div>
         <div id="addVocabularyPage">
             <ul id="menu4" class="menu">
@@ -69,7 +74,7 @@
             </div>
             <form id="addVocabularyForm">
                 <p>
-                    <label for="vocabularyName">單字名稱：</label><input type="text" id="vocabularyName" name="vocabularyName"/>
+                    <label for="vocabularyName">單字名稱：</label><input type="text" id="vocabularyName" name="vocabularyName" data-id=""/>
                 </p>
                 <p>
                     <label for="vocabularyMeaning">單字解釋：</label>
@@ -78,13 +83,14 @@
                     <textarea id="vocabularyMeaning" name="vocabularyMeaning" style="width: 80%;" rows="12"></textarea>
                 </p>
                 <p>
-                    <input type="submit" value="新增"/>
+                    <input type="submit" value="送出"/>
                 </p>
             </form>
         </div>
 
         <div id="vocabularyContent">
             <ul id="menu3" class="menu">
+                <li id="click_editVocabulary">編輯此單字</li>
                 <li id="deleteVocabulary">刪除此單字</li>
                 <li id="click_category1">返回分類</li>
             </ul>

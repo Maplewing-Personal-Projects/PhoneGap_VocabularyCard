@@ -25,11 +25,21 @@ html, body {
 
 body {
     font-size: 11pt;
-    font-family: "Segoe UI Light", "Segoe WP", "微軟正黑體";
+    font-family: "Segoe WP";
     letter-spacing: 0.02em;
-    background-color: #000000;
+    /* background-color: #000000; */
+    background: #1d2793; /* Old browsers */
+    background: -moz-linear-gradient(top, #1d2793 0%, #523460 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1d2793), color-stop(100%,#523460)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #1d2793 0%,#523460 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #1d2793 0%,#523460 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #1d2793 0%,#523460 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #1d2793 0%,#523460 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d2793', endColorstr='#523460',GradientType=0 ); /* IE6-9 */
+    background-attachment: fixed;
     color: #ffffff;
     margin-left: 24px;
+    min-height: 800px;
 }
 
 .page-title {
@@ -47,6 +57,7 @@ ul.menu {
         padding: 10px;
         border: 1px solid white;
         width: auto;
+        margin-top: 5px;
         margin-right: 5px;
     }
 
@@ -59,14 +70,14 @@ ul.category-list, ul.vocabulary-list {
     list-style-type: none;
     padding-left: 0px;
     clear: both;
-    
+    -ms-touch-action: none; 
 }
 
     ul.category-list li, ul.vocabulary-list li, #click_index2 {
         margin: 10px;
         padding: 10px;
         border: 1px solid white;
-        width: 200px;
+        width: 80%;
     }
 
         ul.category-list li:active, ul.vocabulary-list li:active, #click_index2:active{
@@ -79,6 +90,14 @@ ul.category-list, ul.vocabulary-list {
 
 #addCategory, #categoryContent, #vocabularyContent, #addVocabularyPage, #about {
     display: none;
+}
+
+#about {
+    margin-left: -24px;
+    width: 120%;
+    background: white;
+    color: black;
+    padding: 10px;
 }
 
 .card {
