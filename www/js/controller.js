@@ -22,6 +22,15 @@ $(function () {
                     meaning: "(v.) 慢跑"
                 }
             ]
+        },
+        {
+            name: "自己紹介",
+            vocabulary: [
+                {
+                    name: "[将来](しょうらい)の[夢](ゆめ)",
+                    meaning: "將來的夢想"
+                }
+            ]
         }
     ];
 
@@ -106,6 +115,10 @@ $(function () {
         }).disableSelection();
     };
     
+    var vocabularyNamePreparser = function(name){
+        return name.replace(/\[([^\]]*)\]\(([^\)]*)\)/g, "<ruby>$1<rt>$2</rt></ruby>");
+    }
+
     var resetVocabularyList = function () {
         $("#vocabulary-list").html('');
         var category = JSON.parse(window.localStorage.WZ_categories);
@@ -116,7 +129,7 @@ $(function () {
                 $("#vocabulary-list").html($("#vocabulary-list").html() + "<li data-id='" + i + "'>" + category[categoryId].vocabulary[i].meaning + "</li>");
             }
             else {
-                $("#vocabulary-list").html($("#vocabulary-list").html() + "<li data-id='" + i + "'>" + category[categoryId].vocabulary[i].name + "</li>");
+                $("#vocabulary-list").html($("#vocabulary-list").html() + "<li data-id='" + i + "'>" + vocabularyNamePreparser(category[categoryId].vocabulary[i].name) + "</li>");
             }
         }
         sortVocabulary();
@@ -179,33 +192,33 @@ $(function () {
 
         resetCategoryList();
         allClose(function(){
-            if (dataId === "") $('#index').slideDown('slow');
+            if (dataId === "") $('#index').slideDown('fast');
             else {
                 $('#page-title2').html(value);
-                $('#categoryContent').slideDown('slow');
+                $('#categoryContent').slideDown('fast');
             }
         });
         return false;
     });
 
     var allClose = function (callback) {
-        $('#about').slideUp('slow', function () {
-            $('#addCategory').slideUp('slow', function () {
+        $('#about').slideUp('fast', function () {
+            $('#addCategory').slideUp('fast', function () {
                 $('#click_index').html("返回分類列表");
                 $('#category').val("");
                 $('#category').attr("data-id", "");
                 $('#page-title1').html("新增分類");
 
-                $('#addVocabularyPage').slideUp('slow', function () {
+                $('#addVocabularyPage').slideUp('fast', function () {
                     $('#click_category').html("返回分類");
                     $('#vocabularyName').val("");
                     $('#vocabularyName').attr("data-id", "");
                     $('#vocabularyMeaning').val("");
                     $('#page-title4').html("新增單字");
 
-                    $('#vocabularyContent').slideUp('slow', function () {
-                        $('#categoryContent').slideUp('slow', function () {
-                            $('#index').slideUp('slow', function () {
+                    $('#vocabularyContent').slideUp('fast', function () {
+                        $('#categoryContent').slideUp('fast', function () {
+                            $('#index').slideUp('fast', function () {
                                 callback();
                             });
                         });
@@ -216,12 +229,12 @@ $(function () {
     };
 
     $('#programName').click(function () {
-        $('#about').slideToggle('slow');
+        $('#about').slideToggle('fast');
     });
 
     $('#click_addCategory').click(function () {
         allClose(function () {
-            $('#addCategory').slideDown('slow');
+            $('#addCategory').slideDown('fast');
         });
 
     });
@@ -232,51 +245,51 @@ $(function () {
             $('#page-title1').html("編輯分類");
             $('#category').val($("#page-title2").html());
             $('#category').attr('data-id', $("#page-title2").attr('data-id'));
-            $('#addCategory').slideDown('slow');
+            $('#addCategory').slideDown('fast');
         });
     });
 
     $('#click_index').click(function () {
         if ($('#category').attr("data-id") === "") {
             allClose(function () {
-                $('#index').slideDown('slow');
+                $('#index').slideDown('fast');
             });
         }
         else {
             allClose(function () {
-                $('#categoryContent').slideDown('slow');
+                $('#categoryContent').slideDown('fast');
             });
         }
     });
 
     $('#click_index1').click(function () {
         allClose(function () {
-            $('#index').slideDown('slow');
+            $('#index').slideDown('fast');
         });
     });
 
     $('#click_category').click(function () {
         if ($('#vocabularyName').attr("data-id") === "") {
             allClose(function () {
-                $('#categoryContent').slideDown('slow');
+                $('#categoryContent').slideDown('fast');
             });
         }
         else {
             allClose(function () {
-                $('#vocabularyContent').slideDown('slow');
+                $('#vocabularyContent').slideDown('fast');
             });
         }
     });
 
     $('#click_category1').click(function () {
         allClose(function () {
-            $('#categoryContent').slideDown('slow');
+            $('#categoryContent').slideDown('fast');
         });
     });
 
     $('#addVocabulary').click(function () {
         allClose(function () {
-            $('#addVocabularyPage').slideDown('slow');
+            $('#addVocabularyPage').slideDown('fast');
         });
     });
 
@@ -284,10 +297,15 @@ $(function () {
         allClose(function () {
             $('#click_category').html("返回單字");
             $('#page-title4').html("編輯單字");
-            $('#vocabularyName').val($("#page-title3").html());
             $('#vocabularyName').attr('data-id', $("#page-title3").attr('data-id'));
+
+            var category = JSON.parse(window.localStorage.WZ_categories);
+            var categoryId = $('#page-title2').attr('data-id');
+            var vocabularyName = category[categoryId].vocabulary[$("#page-title3").attr('data-id')].name;
+
+            $('#vocabularyName').val(vocabularyName);
             $('#vocabularyMeaning').val(br2nl($("#content").html()));
-            $('#addVocabularyPage').slideDown('slow');
+            $('#addVocabularyPage').slideDown('fast');
         });
     });
 
@@ -301,7 +319,7 @@ $(function () {
             resetCategoryList();
 
             allClose(function () {
-                $('#index').slideDown('slow');
+                $('#index').slideDown('fast');
             });
         }
     });
@@ -317,7 +335,7 @@ $(function () {
             resetVocabularyList();
 
             allClose(function () {
-                $('#categoryContent').slideDown('slow');
+                $('#categoryContent').slideDown('fast');
             });
         }
     });
@@ -341,7 +359,7 @@ $(function () {
             resetVocabularyList();
 
             allClose(function () {
-                $('#categoryContent').slideDown('slow');
+                $('#categoryContent').slideDown('fast');
             });
         }
         return false;
@@ -372,7 +390,7 @@ $(function () {
                     $("#vocabulary-list").html($("#vocabulary-list").html() + "<li data-id='" + i + "'>" + category[categoryId].vocabulary[i].meaning + "</li>");
                 }
                 else {
-                    $("#vocabulary-list").html($("#vocabulary-list").html() + "<li data-id='" + i + "'>" + category[categoryId].vocabulary[i].name + "</li>");
+                    $("#vocabulary-list").html($("#vocabulary-list").html() + "<li data-id='" + i + "'>" + vocabularyNamePreparser(category[categoryId].vocabulary[i].name) + "</li>");
                 }
             }
 
@@ -380,7 +398,7 @@ $(function () {
             sortVocabulary();
 
             allClose(function () {
-                $('#categoryContent').slideDown('slow');
+                $('#categoryContent').slideDown('fast');
             });
         });
     };
@@ -395,12 +413,12 @@ $(function () {
             var vocabulary = category[categoryId].vocabulary[vocabularyId].meaning;
             var vocabularyName = category[categoryId].vocabulary[vocabularyId].name;
 
-            $('#page-title3').html(vocabularyName);
+            $('#page-title3').html(vocabularyNamePreparser(vocabularyName));
             $('#page-title3').attr("data-id", vocabularyId);
             $('#content').html(vocabulary);
 
             allClose(function () {
-                $('#vocabularyContent').slideDown('slow');
+                $('#vocabularyContent').slideDown('fast');
             });
         });
     }
