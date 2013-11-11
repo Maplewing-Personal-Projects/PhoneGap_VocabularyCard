@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.helloworld" version="1.6.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.phonegap.helloworld" version="1.7.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>翼領隨身單字卡</name>
     <description>
         可自行新增分類與單字來讓使用者可以自行決定要讀的單字有哪些。是一個簡單實用的好工具！
