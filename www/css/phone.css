@@ -45,27 +45,47 @@ body {
     min-height: 800px;
 }
 
-.page-title {
-    font-size: 24pt;
+#programName {
+    font-size: 12px;
 }
 
+
+.page-title {
+    font-size: 24pt;
+    height: 25px;
+    padding-bottom: 10px;
+}
+    .page-title img {
+        height: 80%;
+    }
+
+        .page-title img.previous {
+            height: 100%;
+        }
+
+    .page-title#page-title3 {
+        height: auto;
+        margin-left: 3px;
+    }
+
 ul.menu {
-    display: inline-block;
+    display: none;
     list-style-type: none;
     padding-left: 0px;
+    margin-left: -24px;
 }
 
     ul.menu li {
-        float: left;
+        width: 120%;
         padding: 10px;
+        background: white;
+        color: black;
         border: 1px solid white;
-        width: auto;
-        margin-top: 5px;
-        margin-right: 5px;
     }
 
         ul.menu li:active {
             background: #8800ff;
+            color: white;
         }
             
 
@@ -83,6 +103,15 @@ ul.category-list, ul.vocabulary-list {
         width: 50%;
     }
 
+        ul.category-list li.add, ul.vocabulary-list li.add {
+            border: 1px dashed white;
+            vertical-align: central;
+        }
+
+        ul.category-list li.add img, ul.vocabulary-list li.add img {
+            width: 5%;
+        }
+
         ul.category-list li:active, ul.vocabulary-list li:active, #click_index2:active{
             background: #8800ff;
         }
@@ -91,7 +120,7 @@ ul.category-list, ul.vocabulary-list {
     margin-top: 10px;
 }
 
-#addCategory, #categoryContent, #vocabularyContent, #addVocabularyPage, #about {
+#addCategory, #categoryContent, #vocabularyContent, #addVocabularyPage, #about, #exportPage, #importPage {
     display: none;
 }
 
