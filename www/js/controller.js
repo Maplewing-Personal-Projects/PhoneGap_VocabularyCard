@@ -216,6 +216,7 @@ $(function () {
     };
 
     var allClose = function (callback) {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
         $('#importPage').slideUp('fast', function () {
             $('#exportPage').slideUp('fast', function () {
                 $('#about').slideUp('fast', function () {
@@ -273,7 +274,6 @@ $(function () {
                                             }, 'fast');
                                         });
                                         $('#menu').slideUp();
-                                        window.location.href('#');
                                         callback();
                                     });
                                 });
