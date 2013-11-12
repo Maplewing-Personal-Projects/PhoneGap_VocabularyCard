@@ -273,6 +273,7 @@ $(function () {
                                             }, 'fast');
                                         });
                                         $('#menu').slideUp();
+                                        window.location.href('#');
                                         callback();
                                     });
                                 });
