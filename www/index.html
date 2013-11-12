@@ -12,12 +12,12 @@
     </head>
     <body>
         <div>
-            <h1 id="programName">隨身單字卡 Portable Vocabulary Card 1.7</h1>
+            <h1 id="programName">隨身單字卡 Portable Vocabulary Card 1.8</h1>
         </div>
         <div id="about">
             <h2>翼領隨身單字卡<br />Knightzone Portable Vocabulary Card</h2>
             <ul>
-                <li>版本號：1.7</li>
+                <li>版本號：1.8</li>
                 <li>製作：新罪楓翼☆灆洢騎士</li>
                 <li>網站：http://www.knightzone.org</li>
                 <li>原始碼：https://github.com/sinmaplewing/Knightzone-Portable-Vocabulary-Card</li>
@@ -39,13 +39,13 @@
             <ul id="category-list" class="category-list">
             </ul>
             <ul class="category-list">
-                <li class="add" id="click_addCategory1"><img src="images/Add-New.png" />新增分類</li>
+                <li class="add" id="click_addCategory1"> + 新增分類</li>
             </ul>
             <div>(可拖曳換順序)</div>
         </div>
         <div id="exportPage">
             <div id="page-title6" class="page-title">
-               <img src="images/Previous.png" class="previous" id="click_index3" /> 匯出資料
+               <img src="images/Previous.png" class="previous" data-back="index" /> 匯出資料
             </div>
             <p>
                 <textarea id="exportData" name="exportData" style="width: 80%;" rows="15"></textarea>
@@ -53,7 +53,7 @@
         </div>
         <div id="importPage">
             <div id="page-title7" class="page-title">
-               <img src="images/Previous.png" class="previous" id="click_index4" /> 匯入資料
+               <img src="images/Previous.png" class="previous" data-back="index" /> 匯入資料
             </div>
             <form action="#" method="post" id="importForm">
                 <p>
@@ -71,7 +71,7 @@
             </ul>
             -->
             <div id="page-title1" class="page-title">
-                <img src="images/Previous.png" class="previous" id="click_index" /> 新增分類
+                <img src="images/Previous.png" class="previous" data-back="index" /> 新增分類
             </div>
             <form id="addCategoryForm">
                 <p>
@@ -89,18 +89,20 @@
                 <li id="click_editCategory">編輯此分類</li>
                 <li id="deleteCategory">刪除此分類</li>
                 <li id="addVocabulary">新增單字</li>
-                <li id="revertContent">反轉單字顯示</li>
+                <li id="revertContent" class="vocabularyDisplayFalse">反轉單字顯示</li>
+                <li id="openAllVocabulary" class="vocabularyDisplayFalse">展開單字卡</li>
+                <li id="closeAllVocabulary" class="vocabularyDisplayTrue">閉合單字</li>
             </ul>
             <ul id="vocabulary-list" class="vocabulary-list">
             </ul>
             <ul class="category-list">
-                <li class="add" id="addVocabulary1"><img src="images/Add-New.png" />新增單字</li>
+                <li class="add" id="addVocabulary1"> + 新增單字</li>
             </ul>
             <div>(可拖曳換順序)</div>
         </div>
         <div id="addVocabularyPage">
             <div id="page-title4" class="page-title">
-                <img src='images/Previous.png' class='previous' id='click_category' /> 新增單字
+                <img src='images/Previous.png' class='previous' data-back='categoryContent' /> 新增單字
             </div>
             <form id="addVocabularyForm">
                 <p>
@@ -120,7 +122,7 @@
 
         <div id="vocabularyContent">
             <div id="page-title5" class="page-title" style="margin-bottom: 15px">
-                <img src="images/Previous.png" class="previous" id="click_category1" /> 單字卡 <img src="images/Arrowhead-Down-01.png" />
+                <img src="images/Previous.png" class="previous" data-back="categoryContent" /> 單字卡 <img src="images/Arrowhead-Down-01.png" />
             </div>
             <ul id="menu3" class="menu">
                 <li id="click_editVocabulary">編輯此單字</li>
